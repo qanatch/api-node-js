@@ -5,11 +5,11 @@ let baseURL: string = 'http://localhost:3000/users';
 
 let userID: number;
 
-// test.beforeAll(async ({request}) => {
-//     const response = await request.post(`${baseURL}`);
-//     const body = await response.json();
-//     userID = body.id
-// });
+test.beforeAll(async ({request}) => {
+    const response = await request.post(`${baseURL}`);
+    const body = await response.json();
+    userID = body.id
+});
 
 test.describe('User management API', () => {
 
