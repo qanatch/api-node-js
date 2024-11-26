@@ -6,11 +6,11 @@ let baseURL: string = 'http://localhost:3000/users';
 
 let userID: number;
 
-// test.beforeAll(async ({ request }) => {
-//     const response = await request.post(`${baseURL}`);
-//     const body = await response.json();
-//     userID = body.id
-// });
+test.beforeAll(async ({ request }) => {
+    const response = await request.post(`${baseURL}`);
+    const body = await response.json();
+    userID = body.id
+});
 
 test.beforeEach(async ({ request }) => {
     // get all users
@@ -51,7 +51,8 @@ test.describe('User management API', () => {
         const response = await request.get(`${baseURL}`);
         expect(response.status()).toBe(200);
         const responseBody = await response.text()
-        expect(response.status()).toBe('[]');
+        console.log(responseBody)
+        expect(responseBody).toEqual('[]');
     });
 
     test('POST create n users', async ({request}) => {
@@ -126,5 +127,5 @@ test.describe('User management API', () => {
         const responseBody = await response.json();
         console.log(responseBody)
         expect.soft(response.status()).toBe(404)
-    });
+      });
 });
