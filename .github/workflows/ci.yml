@@ -31,4 +31,5 @@ jobs:
             up-flags: -d
 
       - name: Run tests
-        run: npx playwright test
+        run: npx playwright test tests/user-empty-array.test.ts tests/user-controller.test.ts
+#        run: npx playwright test

@@ -13,13 +13,6 @@ test.beforeAll(async ({request}) => {
 
 test.describe('User management API', () => {
 
-    // test('GET / - should return empty when no users', async ({request}) => {
-    //     const response = await request.get(`${baseURL}`);
-    //     expect(response.status()).toBe(200);
-    //     const responseBody = await response.json()
-    //     expect(responseBody).toBe('[]');
-    // });
-
     test('GET /:id - should return a user by ID', async ({request}) => {
         const response = await request.get(`${baseURL}` + "/" + userID)
         const responseBody = await response.text()
