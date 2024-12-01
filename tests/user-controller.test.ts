@@ -6,11 +6,11 @@ let baseURL: string = 'http://localhost:3000/users';
 
 let userID: number;
 
-test.beforeAll(async ({ request }) => {
-    const response = await request.post(`${baseURL}`);
-    const body = await response.json();
-    userID = body.id
-});
+// test.beforeAll(async ({ request }) => {
+//     const response = await request.post(`${baseURL}`);
+//     const body = await response.json();
+//     userID = body.id
+// });
 
 test.beforeEach(async ({ request }) => {
     // get all users
@@ -72,7 +72,6 @@ test.describe('User management API', () => {
         const responseBody = await response.json()
 
         // get the number of objects in the array returned
-
         const numberOfObjects = responseBody.length;
         // loop through all users and store their ID in an array
         for (let i = 0; i < usersCount; i++) {
