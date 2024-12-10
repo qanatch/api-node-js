@@ -34,7 +34,7 @@ test.describe('User management API', () => {
     });
 
     test('DELETE /:id - should delete a user by ID', async ({request}) => {
-        const response = await request.post(`${baseURL}` + "/" + userID);
+        const response = await request.delete(`${baseURL}` + "/" + userID);
         const responseBody = await response.json();
         console.log(responseBody)
         expect.soft(response.status()).toBe(StatusCodes.OK)
@@ -42,7 +42,7 @@ test.describe('User management API', () => {
     });
 
     test('DELETE /:id - should return 404 if user not found', async ({request}) => {
-        const response = await request.post(`${baseURL}` + "/" + 111);
+        const response = await request.delete(`${baseURL}` + "/" + 111);
         const responseBody = await response.json();
         console.log(responseBody)
         expect.soft(response.status()).toBe(StatusCodes.NOT_FOUND)
