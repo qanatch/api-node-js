@@ -3,8 +3,8 @@ import {test, expect} from '@playwright/test';
 import {StatusCodes} from "http-status-codes";
 
 let baseURL: string = 'http://localhost:3000/users';
-
 let userID: number;
+
 
 test.beforeAll(async ({request}) => {
     const response = await request.post(`${baseURL}`);

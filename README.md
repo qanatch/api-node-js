@@ -61,13 +61,13 @@ HTTP/1.1 200 OK
 
 ###Checklist
 
-|#| Method   | Scenario                                                         |
-|---|----------|------------------------------------------------------------------|
-|1.| GET :    | Request all users                                                |
-|2.| GET :    | User is absent. Request all users                                |
-|3.| POST :   | Create user                                 |
-|4.| GET :    | Получить пользователя по существующему ID                        |
-|5.| GET :    | Получить несуществующего пользователя по ID                      |
-|6.| GET :    | Получение пользователя с неверным форматом ID.(например "abc123") |
-|7.| DELETE : | Удаление существующего пользователя по ID                        |
-|8.| DELETE : | Удаление несуществующего пользователя по ID                      |
+|#| Method   | Scenario                                                      |
+|---|----------|---------------------------------------------------------------|
+|1.| GET :    | Request all users                                             |
+|2.| GET :    | User is absent. Request all users                             |
+|3.| POST :   | Create user                                                   |
+|4.| GET :    | Get user by existing ID                                       |
+|5.| GET :    | Get nonexisting user by ID                                    |
+|6.| GET :    | Get user with an invalid ID format (for example "abc123")|
+|7.| DELETE : | Delete existing user by ID                                    |
+|8.| DELETE : | Delete nonexisting user by ID                                 |
