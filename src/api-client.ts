@@ -1,4 +1,4 @@
-import {APIRequestContext} from "@playwright/test";
+import {APIRequestContext,request} from "@playwright/test";
 
 let baseURL: string = 'http://localhost:3000/users'
 
