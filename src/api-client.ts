@@ -1,4 +1,4 @@
-import {APIRequestContext,request} from "@playwright/test";
+import {APIRequestContext} from "@playwright/test";
 
 let baseURL: string = 'http://localhost:3000/users'
 
@@ -18,7 +18,7 @@ export class ApiClient {
     }
 
    async createUsers(users: number): Promise<number> {
-        for(let i=0; i<users;i++){
+        for(let i=0; i< users;i++){
            const response = await this.request.post(baseURL)
         }
         return users
