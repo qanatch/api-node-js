@@ -77,6 +77,32 @@ test.beforeEach(async ({ request }) => {
 
         expect(expectResponseBody).toStrictEqual([])
     })
+    test('DELETE m users should not affect other users', async ({request}) => {
+        const apiClient = await ApiClient.getInstance(request)// create an instance of the class
+        const usersCount = await apiClient.createUsers(5)// create user using method createUsers
+
+        const response = await request.get(`${baseURL}`);// get all users
+        const responseBody = await response.json()
+        const numberOfObjects = responseBody.length;// count of users must be equal 5 - check using  length
+
+        let userIDs = []; // create an empty array to store all user ID
+        for (let i = 0; i < usersCount; i++) {
+            let userID = responseBody[i].id;
+            userIDs.push(userID);
+        }
+
+        for (let i = 0; i < 3; i++) {
+            const idToDelete = userIDs[i]//  user ID for delete
+            let response = await request.delete(`${baseURL}/${idToDelete}`)
+            expect(response.status()).toBe(200);
+        }
+
+        const expectResponse = await request.get(`${baseURL}`);
+        const expectResponseBody = await expectResponse.json()
+        expect(expectResponseBody.length).toBe(usersCount - 3)
+    });
+
+
 
 
 
